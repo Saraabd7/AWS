@@ -33,8 +33,11 @@ The location of this is important as different servers serve different purposes 
 
 ## SSH connection
 - In the terminal Check on machine that have the ssh key. 
+
+
 ```ssh -i ~/< key name > ubuntu@ o eg . ssh -i ~/.ssh/name.pem ubuntu@(my_ip)
 ```
+
 ``` 'scp -r -i ~/.ssh/Sara-eng54.pem app ubuntu@my_ip:/home/ubuntu/app'
 ```
 
@@ -49,24 +52,36 @@ The location of this is important as different servers serve different purposes 
 
 
 ## How to copy a file
+
 ``` scp -i path/to/key file/to/copy user@ec2-xx-xx-xxx-xxx.compute-1.amazonaws.com:path/to/file/
 ```
+
 ``` scp -i ~/.ssh/name.pem ../environment/app/provision.sh ubunutu@ my_ip:/home/ubuntu/file.sh
 ```
 - In ubuntu machine/environment check if the path created the file correctly and then run the provision
 to run the file: 
+
 ```./provision.sh
 ```
 
 
 ## How to copy a directory
-- To copy an entire directory, add the -r recursive option: ```scp -i path/to/key -r directory/to/copy user@ec2-xx-xx-xxx-xxx.compute-1.amazonaws.com:path/to/directory. ' scp -i ~/.ssh/name.pem -r ../environment/ ubuntu@my_ip:/home/ubuntu/'
+- To copy an entire directory, add the -r recursive option:
+
+ ```scp -i path/to/key -r directory/to/copy user@ec2-xx-xx-xxx-xxx.compute-1.amazonaws.com:path/to/directory.
+ ```
+
+
+ ``` scp -i ~/.ssh/name.pem -r ../environment/ ubuntu@my_ip:/home/ubuntu/'
 ```
+
 - In ubuntu machine/environment check if the path created correctly and then run the provision
 to run the file: ./
 
 ## How to change the rights of a file
 If a provision file is not executing you may not have the rights to do this. So either on your local machine or on vm,  into the path where the .sh provision file is stored and run this command:
+
+
 ```chmod +x
 ```
  The x is for executable, it adds the right to execute, can do this for read and write too.
